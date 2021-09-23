@@ -1,0 +1,9 @@
+.Ingredient {
+    width: 80%;
+    text-align: center;
+    margin: auto;
+}
+
+.Ingredient img {
+    width: 80%;
+}
