@@ -4,7 +4,8 @@ import { Card, CardBody, CardHeader, CardFooter, Button } from "reactstrap";
 const controls = [
     { label: "Tomato", type: "Tomato" },
     { label: "Cheese", type: "Cheese" },
-    { label: "Lettuse", type: "Lettuse" }
+    { label: "Lettuse", type: "Lettuse" },
+    { label: "Meat", type: "Meat" }
 ];
 
 const BuildControl = props => {
@@ -43,7 +44,7 @@ const Controls = props => {
                 </CardBody>
                 <CardFooter>
                     <h6>Price: <strong>{props.price}</strong> BDT</h6>
-                    <Button disabled={!props.purchasable} onClick={ props.modelOpen}>Checkout</Button>
+                    <Button color="dark" className="font-weight-bold" disabled={!props.purchasable} onClick={ props.modelOpen}>Checkout</Button>
                 </CardFooter>
             </Card>
         </div>

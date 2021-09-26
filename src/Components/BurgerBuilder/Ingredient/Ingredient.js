@@ -1,10 +1,11 @@
 import React from 'react';
 import './Ingredient.css';
-import BreadTop from '../../../assets/images/top.jpg'
-import BreadBottom from '../../../assets/images/bottom.jpg'
-import Cheese from '../../../assets/images/cheese.jpg'
-import Lettuse from '../../../assets/images/lettuse.jpg'
-import Tomato from '../../../assets/images/tomato.jpg'
+import BreadTop from '../../../assets/images/top.jpg';
+import BreadBottom from '../../../assets/images/bottom.jpg';
+import Cheese from '../../../assets/images/cheese.jpg';
+import Lettuse from '../../../assets/images/lettuse.jpg';
+import Tomato from '../../../assets/images/tomato.jpg';
+import Meat from '../../../assets/images/meat.jpg';
 
 const Ingredient = props => {
     let ingredient = null;
@@ -25,6 +26,9 @@ const Ingredient = props => {
             break;
         case "Tomato":
             ingredient = <img src={Tomato} alt={props.type} />
+            break;
+        case "Meat":
+            ingredient = <img src={Meat} alt={props.type} />
             break;
 
         default:
