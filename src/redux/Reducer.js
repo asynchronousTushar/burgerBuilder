@@ -18,7 +18,11 @@ const initialState = {
     purchasable: false,
     ordersLoading: true,
     orders: [],
-    ordersError: false
+    ordersError: false,
+    token: null,
+    userId: null,
+    authLoading: false,
+    authFailedMsg: null
 }
 
 const Reducer = (state = initialState, action) => {
@@ -31,7 +35,7 @@ const Reducer = (state = initialState, action) => {
                 if (item.type === action.payload) {
                     if (item.unit >= 3) {
                         alert('It will distroy the burger');
-                        return;
+                        return state;
                     }
 
                     item.unit++
@@ -47,7 +51,9 @@ const Reducer = (state = initialState, action) => {
 
             for (let item of ingredients) {
                 if (item.type === action.payload) {
-                    if (item.unit <= 0) return;
+                    if (item.unit <= 0) {
+                        return state;
+                    }
 
                     item.unit--
                 }
@@ -99,6 +105,33 @@ const Reducer = (state = initialState, action) => {
                 ...state,
                 ordersError: true,
                 ordersLoading: false
+            }
+
+        case actionType.AUTH_SUCCESS:
+            return {
+                ...state,
+                token: action.payload.token,
+                userId: action.payload.userId
+            }
+
+        case actionType.LOG_OUT:
+            return {
+                ...state,
+                authFailedMsg: null,
+                token: null,
+                userId: null
+            }
+
+        case actionType.AUTH_LOADING:
+            return {
+                ...state,
+                authLoading: action.payload
+            }
+
+        case actionType.AUTH_FAILED:
+            return {
+                ...state,
+                authFailedMsg: action.payload
             }
 
         default:

@@ -12,8 +12,8 @@ const BuildControl = props => {
     return (
         <div className="d-flex mt-1">
             <div className="mr-auto ml-5" style={{ fontWeight: "bold", fontSize: "1.2rem" }}>{props.label}</div>
-            <button className="btn btn-danger btn-sm mr-1" onClick={props.removeIngredient}>Less</button>
-            <button className="btn btn-success btn-sm mr-1" onClick={props.addIngredient}>More</button>
+            <button className="btn btn-danger btn-sm mr-1" onClick={() => props.removeIngredient(props.type)}>Less</button>
+            <button className="btn btn-success btn-sm mr-1" onClick={() => props.addIngredient(props.type)}>More</button>
         </div>
     );
 }
@@ -32,12 +32,8 @@ const Controls = props => {
                                 label={item.label}
                                 type={item.type}
                                 key={Math.random()}
-                                addIngredient={() => {
-                                    props.addIngredient(item.type)
-                                }}
-                                removeIngredient={() => {
-                                    props.removeIngredient(item.type)
-                                }}
+                                addIngredient={props.addIngredient}
+                                removeIngredient={props.removeIngredient}
                             />
                         })
                     }

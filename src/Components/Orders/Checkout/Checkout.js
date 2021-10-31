@@ -9,7 +9,9 @@ const mapStateToProps = state => {
     return {
         ingredients: state.ingredients,
         totalPrice: state.totalPrice,
-        purchasable: state.purchasable
+        purchasable: state.purchasable,
+        userId: state.userId,
+        token: state.token
     }
 }
 
@@ -46,12 +48,13 @@ class Checkout extends React.Component {
             ingredients: this.props.ingredients,
             price: this.props.totalPrice,
             customer: this.state.values,
-            orderTime: new Date()
+            orderTime: new Date(),
+            userId: this.props.userId
         }
         this.setState({
             isLoading: true
         })
-        axios.post("https://burger-builder-b361b-default-rtdb.asia-southeast1.firebasedatabase.app/orders.json", order)
+        axios.post("https://burger-builder-b361b-default-rtdb.asia-southeast1.firebasedatabase.app/orders.json?auth=" + this.props.token, order)
             .then(response => {
                 if (response.status === 200) {
                     this.setState({
@@ -102,7 +105,6 @@ class Checkout extends React.Component {
 
 
     render() {
-
         let modal = null;
 
         if (this.state.orderStatus === "success") {
