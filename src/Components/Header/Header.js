@@ -16,9 +16,11 @@ const Header = props => {
     if (props.token === null) {
         links = (
             <Navbar style={{ background: "#D70F64", height: "70px" }}>
-                <NavbarBrand href="/" className="mr-auto ml-md-5 Brand">
-                    <h4 style={{ fontFamily: "monospace", fontWeight: "bolder" }}>Burger Builder</h4>
-                </NavbarBrand>
+                <NavLink to="/" exact>
+                    <NavbarBrand className="mr-auto ml-md-5 brand">
+                        <h4 style={{ color: "lightcyan", fontFamily: "cursive", fontWeight: "bold" }}>Burger Builder</h4>
+                    </NavbarBrand>
+                </NavLink>
                 <Nav className="mr-md-5">
                     <NavItem className="NavItem">
                         <NavLink to="/login" exact className="Navlink">Log In</NavLink>
@@ -29,9 +31,11 @@ const Header = props => {
     } else {
         links = (
             <Navbar style={{ background: "#D70F64", height: "70px" }}>
-                <NavbarBrand href="/" className="mr-auto ml-md-5 brand">
-                    <h4 style={{color: "lightcyan", fontFamily: "cursive", fontWeight: "bold"}}>Burger Builder</h4>
-                </NavbarBrand>
+                <NavLink to="/" exact>
+                    <NavbarBrand className="mr-auto ml-md-5 brand">
+                        <h4 style={{ color: "lightcyan", fontFamily: "cursive", fontWeight: "bold" }}>Burger Builder</h4>
+                    </NavbarBrand>
+                </NavLink>
                 <Nav className="mr-md-5">
                     <NavItem className="NavItem">
                         <NavLink to="/" exact className="Navlink ">Burger Builder</NavLink>
